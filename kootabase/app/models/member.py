@@ -1,6 +1,6 @@
 from argparse import ONE_OR_MORE
 from django.db import models
-from .users import BaseUser 
+from .user import BaseUser 
 
 
 class Member(BaseUser): 
@@ -10,3 +10,5 @@ class Member(BaseUser):
     withdraws = models.ForeignKey('Withdraw', on_delete=models.CASCADE) 
     deposits = models.ForeignKey('Deposit', on_delete=models.CASCADE) 
     beneficiaries = models.ForeignKey('self', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True) 
+    updated_at = models.DateTimeField(auto_now=True)
