@@ -1,3 +1,4 @@
+from xml.dom.expatbuilder import Rejecter
 from django.db import models 
 from enum import Enum
 
@@ -9,25 +10,31 @@ class ORDER_TYPE(Enum):
 class Order(models.Model): 
     """
     """
-    class ORDER_STATE(Enum): 
-        PENDING = "pending" 
-        WAIT = "wait" 
-        DONE = "done" 
-        CANCEL = "cancel" 
-        REJECT = "reject"
 
+    # Order states 
+    PENDING = "PENDING" 
+    WAIT = "WAIT" 
+    DONE = "DONE" 
+    CANCEL = "CANCEL" 
+    REJECT = "REJECT"
 
-    STATE_CHOICES = (
-        ('Pending', 'pending'), 
-        ('Wait', 'wait'), 
-        ('Cancel', 'cancel'), 
-        ('Reject', 'reject')
-    )
+    # Order choices
+    STATE_CHOICES = [
+        (PENDING, "Pending"), 
+        (DONE, "Done"), 
+        (CANCEL, "Cancel"), 
+        (REJECT, "Reject"), 
+        (WAIT, "Wait")
+    ]
 
-    ORDER_TYPE_CHOICES = (
-        ('Market', 'market'), 
-        ('Limit', 'limit')
-    )
+    # Order types
+    MARKET = "MARKET" 
+    LIMIT = "LIMIT"
+
+    ORDER_TYPE_CHOICES = [
+        (MARKET, 'Market'), 
+        (LIMIT, 'Limit')
+    ]
 
     uuid = models.BinaryField(max_length=16, null=False, unique=True)  
     remote_id = models.CharField(max_length=255) 
@@ -39,7 +46,7 @@ class Order(models.Model):
     origin_volume = models.DecimalField(max_digits=32, decimal_places=16, null=False) 
     maker_fee = models.DecimalField(max_digits=17, decimal_places=16, default=0.0, null=False) 
     taker_fee = models.DecimalField(max_digits=17, decimal_places=16, default=0.0, null=False)
-    state = models.CharField(max_length=255, choices=STATE_CHOICES, default=ORDER_STATE.PENDING)
+    state = models.CharField(max_length=255, choices=STATE_CHOICES, default=PENDING)
 
     # the type of order to be executed it can either be a market or a limit order
     type = models.CharField(max_length=8, null=False, choices=ORDER_TYPE_CHOICES)

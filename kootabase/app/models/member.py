@@ -4,6 +4,7 @@ from .user import BaseUser
 
 
 class Member(BaseUser): 
+    
     accounts = models.ForeignKey('Account', on_delete=models.CASCADE)
     orders = models.ForeignKey('Order', on_delete=models.CASCADE) 
     payment_addresses = models.ForeignKey('PaymentAddress', on_delete=models.CASCADE) 

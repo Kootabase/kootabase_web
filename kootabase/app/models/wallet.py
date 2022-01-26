@@ -2,10 +2,13 @@ from unicodedata import decimal
 from django.db import models 
 
 class Wallet(models.Model): 
-    WALLET_STATUS = (
-        ('Active', 'active'), 
-        ('Disabled', 'disabled')
-    )
+    ACTIVE = 'ACTIVE' 
+    DISABLED = 'DISABLED'
+    
+    WALLET_STATUS = [
+        (ACTIVE, 'Active'), 
+        (DISABLED, 'Disabled')
+    ]
     owner = models.ForeignKey('Member', on_delete=models.CASCADE) 
     balance = models.DecimalField(max_digits=32, decimal_places=16, default=0.0, null=False)
     blockchain = models.ForeignKey('Blockchain', on_delete=models.CASCADE) 

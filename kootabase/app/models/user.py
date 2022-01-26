@@ -40,10 +40,10 @@ class UserAccountManager(BaseUserManager):
 class BaseUser(AbstractBaseUser, PermissionsMixin): 
     ADMIN = 'Admin' 
     USER = 'User' 
-    roles = (
+    roles = [
         (ADMIN, 'Admin'), 
         (USER, 'User')
-    )
+    ]
 
     email = models.EmailField(max_length=255, unique=True, null=False, blank=False) 
     first_name = models.CharField(max_length=255, null=False) 

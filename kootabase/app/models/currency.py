@@ -3,10 +3,13 @@ from django.db import models
 
 
 class Currency(models.Model): 
-    CURRENCY_TYPES = (
-        ('Fiat', 'fiat'), 
-        ('Coin', 'coin')
-    )
+    FIAT = 'FIAT' 
+    CRYPTO = 'CRYPTO'
+    
+    CURRENCY_TYPES = [
+        (FIAT, 'fiat'), 
+        (CRYPTO, 'coin')
+    ]
     
     name = models.CharField(max_length=255, null=False) 
     description = models.CharField(max_length=65535, null=False) 
