@@ -7,8 +7,8 @@ class BlockChain(models.Model):
     INACTIVE = "INACTIVE" 
 
     BLOCKCHAIN_STATUSES = [
-        (ACTIVE, 'Active'), 
-        (INACTIVE, 'Inactive')
+        (ACTIVE, 'active'), 
+        (INACTIVE, 'inactive')
     ]
 
     key = models.CharField(max_length=255, null=False) 

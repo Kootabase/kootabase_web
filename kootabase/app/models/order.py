@@ -3,9 +3,6 @@ from django.db import models
 from enum import Enum
 
 
-class ORDER_TYPE(Enum): 
-    BID = "bid" 
-    ASK = "ask"
 
 class Order(models.Model): 
     """
@@ -27,13 +24,39 @@ class Order(models.Model):
         (WAIT, "Wait")
     ]
 
-    # Order types
+    # Order types Regular
     MARKET = "MARKET" 
-    LIMIT = "LIMIT"
+    LIMIT = "LIMIT" 
+    STOP_LOSS = "STOP_LOSS" 
+    STOP_LOSS_LIMIT = "STOP_LOSS_LIMIT" 
+    TRAILING_STOP = "TRAILING_STOP" 
+    TRAILING_STOP_LIMIT = "TRAILING_STOP_LIMIT" 
+    OCO = "OCO" # Over the Counter Order 
+
+    # Margin Order Types 
+    MARGIN_MARKET = "MARGIN_MARKET" 
+    MARGIN_LIMIT = "MARGIN_LIMIT" 
+    MARGIN_STOP_LOSS ="MARGIN_STOP_LOSS" 
+    MARGIN_STOP_LOSS_LIMIT = "MARGIN_STOP_LOSS_LIMIT" 
+    MARGIN_TRAILING_STOP = "MARGIN_TRAILING_STOP" 
+    MARGIN_TRAILING_STOP_LIMIT = "MARGIN_TRAILING_STOP_LIMIT" 
+    MARGIN_OCO = "MARGIN_OCO"
 
     ORDER_TYPE_CHOICES = [
-        (MARKET, 'Market'), 
-        (LIMIT, 'Limit')
+        (MARKET, 'market'), 
+        (LIMIT, 'limit'), 
+        (STOP_LOSS, "stop_loss"), 
+        (STOP_LOSS_LIMIT, "stop_loss_limit"), 
+        (TRAILING_STOP, "trailing_stop"), 
+        (TRAILING_STOP_LIMIT, "trailing_stop_limit"), 
+        (OCO, "oco"),
+
+        # Margin order types 
+        (MARGIN_MARKET, "margin_market"), 
+        (MARGIN_LIMIT, "margin_limit"), 
+        (MARGIN_STOP_LOSS, "margin_stop_loss"), 
+        (MARGIN_STOP_LOSS_LIMIT, "margin_stop_loss_limit"), 
+        (MARGIN_OCO, "margin_oco")
     ]
 
     uuid = models.BinaryField(max_length=16, null=False, unique=True)  

@@ -23,7 +23,7 @@ class Withdraw(models.Model):
     type = models.CharField(max_length=30, choices=DEPOSIT_TYPE_CHOICES, null=False) 
     transfer_type = models.CharField(max_length=30, choices=DEPOSIT_TYPE_CHOICES) 
     tid = models.CharField(max_length=64, null=False) 
-    rid = models.CharField(max_length=256, null=False) 
+    rid = models.CharField(max_length=256, null=False)  # receiver id
     note = models.CharField(max_length=256) 
     metadata = models.JSONField() 
     error = models.JSONField() 

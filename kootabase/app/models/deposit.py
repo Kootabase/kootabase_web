@@ -8,13 +8,13 @@ class Deposit(models.Model):
     FIAT = 'FIAT' 
     CRYPTO = 'CRYPTO'
     DEPOSIT_TYPES = [
-        (FIAT, 'Fiat'), 
-        (CRYPTO, 'Crypto')
+        (FIAT, 'fiat'), 
+        (CRYPTO, 'crypto')
     ]
 
     TRANSFERT_TYPES = [
-        (FIAT, 'Fiat'), 
-        (CRYPTO, 'Crypto')
+        (FIAT, 'fiat'), 
+        (CRYPTO, 'crypto')
     ]
 
     member_id = models.ForeignKey('Member', on_delete=models.CASCADE, null=False) 

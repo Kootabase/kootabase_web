@@ -1,6 +1,10 @@
 from django.db import models 
 
 class PaymentAddress(models.Model): 
+    """
+        Payment address normaly refers to the deposits address
+        (where deposits are madel :-) )
+    """
     
     member_id = models.ForeignKey('Member', on_delete=models.CASCADE) 
     wallet_id = models.ForeignKey('Wallet', on_delete=models.SET_NULL) 

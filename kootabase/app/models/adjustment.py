@@ -21,23 +21,23 @@ class Adjustment(models.Model):
     MINOR = "MINOR"
 
     ADJUSTMENT_CATEGORIES = [
-        (ASSET_REGISTRATION, "Asset_registration"), 
-        (INVESTMENT, "Investment"), 
-        (MINTING_TOKEN, "Minting_token"), 
-        (BALANCE_ANOMALY, "Balance_anomaly"), 
-        (MISC, "Misc"), 
-        (REFUND, "Refund"), 
-        (COMPENSATION, "Compensation"), 
-        (INCENTIVE, "Incentive"), 
-        (BANK_FEES, "Bank_fees"), 
-        (BANK_INTEREST, "Bank_interest"), 
-        (MINOR, "Minor")
+        (ASSET_REGISTRATION, "asset_registration"), 
+        (INVESTMENT, "anvestment"), 
+        (MINTING_TOKEN, "minting_token"), 
+        (BALANCE_ANOMALY, "balance_anomaly"), 
+        (MISC, "misc"), 
+        (REFUND, "refund"), 
+        (COMPENSATION, "compensation"), 
+        (INCENTIVE, "incentive"), 
+        (BANK_FEES, "bank_fees"), 
+        (BANK_INTEREST, "bank_interest"), 
+        (MINOR, "minor")
     ]
 
     ADJUSTMENT_STATUSES = [
-        (PENDING, "Pending"), 
-        (ACCEPTED, "Accepted"), 
-        (REJECTED, "Rejected")
+        (PENDING, "pending"), 
+        (ACCEPTED, "accepted"), 
+        (REJECTED, "rejected")
     ]
 
     reason = models.CharField(max_length=255, null=False)
