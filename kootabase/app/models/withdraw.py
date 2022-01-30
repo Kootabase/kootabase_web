@@ -7,8 +7,8 @@ class Withdraw(models.Model):
     CRYPTO = "CRYPTO" 
 
     DEPOSIT_TYPE_CHOICES = [
-        (FIAT, "Fiat"), 
-        (CRYPTO, "Crypto")
+        (FIAT, "fiat"), 
+        (CRYPTO, "crypto")
     ]
 
     member_id = models.ForeignKey('Member', on_delete=models.CASCADE, null=False) 
