@@ -8,3 +8,7 @@ This is an experimental project, to test the feasibility of this kind of project
 Koota comes from the Swahili word "Makuta" which means money the "base" in koota base is a pun on "coinbase" from the bitcoin protocol.
 
 ## Features
+
+  - A trading matching engine 
+  - Crypto assets deposits and withdrawals 
+  - Connection with external payment gateways
