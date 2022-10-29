@@ -101,7 +101,7 @@
           - Wallets 
           - Blockchain service
 
-        => These servies can be grouped in  (Admin API, User API, Management API, EventAPI, TradingAPI, WebsocketAPI)
+        => These servies can be grouped in  (Admin API, User API, Management API, EventAPI, TradingAPI, WebsocketAPI /)
 
 ## What are the potential bottlnecks: 
 
